@@ -19,7 +19,7 @@ parse_asnames <- function(as_fil) {
   as_fil <- path.expand(as_fil)
   if (!file.exists(as_fil)) stop("File not found.", call.=FALSE)
 
-  suppressWarnings(xdf <- stringi::stri_read_lines(as_fil, fallback_encoding = "UTF-8"))
+  suppressWarnings(xdf <- stringi::stri_read_lines(as_fil, encoding = "UTF-8"))
 
   as.data.frame(
     stringi::stri_split_regex(xdf, "[[:space:]]+", 2, simplify = TRUE),
